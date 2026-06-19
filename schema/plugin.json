@@ -1,0 +1,23 @@
+{
+  "title": "JupyPress",
+  "description": "Settings for the JupyPress presentation extension",
+  "type": "object",
+  "properties": {
+    "defaultTheme": {
+      "type": "string",
+      "default": "default",
+      "description": "Default theme to apply when creating new presentations"
+    },
+    "enableLivePreview": {
+      "type": "boolean",
+      "default": true,
+      "description": "Enable live preview in the slide editor panel"
+    },
+    "cellsPerSlide": {
+      "type": "number",
+      "default": 5,
+      "minimum": 1,
+      "description": "Default number of cells per slide when auto-generating slides"
+    }
+  }
+}

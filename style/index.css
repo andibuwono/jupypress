@@ -1,0 +1,2060 @@
+/* JupyPress Extension Styles */
+/* All colors reference JupyterLab CSS variables for theme compatibility */
+
+/* ── Toolbar ───────────────────────────────────────────────────────────── */
+
+.jp-JupypressToolbar-button {
+  display: inline-flex;
+  align-items: center;
+}
+
+/* ── Editor Panel (root widget) ────────────────────────────────────────── */
+
+.jp-JupypressEditor {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  width: 100%;
+  position: relative;
+  background: var(--jp-layout-color2);
+  color: var(--jp-content-font-color1);
+  font-size: var(--jp-ui-font-size1);
+}
+
+/* ── Navbar (reference design) ──────────────────────────────────────── */
+
+.jp-JupypressEditor-navbar {
+  display: flex;
+  align-items: center;
+  height: 48px;
+  padding: 0 12px;
+  background: var(--jp-layout-color0);
+  border-bottom: 1px solid var(--jp-border-color1);
+  flex-shrink: 0;
+  gap: 8px;
+}
+
+.jp-JupypressEditor-brand {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--jp-brand-color1);
+  font-weight: 700;
+  font-size: 15px;
+  padding-right: 16px;
+  border-right: 1px solid var(--jp-border-color1);
+  white-space: nowrap;
+  flex-shrink: 0;
+  letter-spacing: -0.01em;
+}
+
+.jp-JupypressEditor-brandIcon {
+  width: 18px;
+  height: 18px;
+  flex-shrink: 0;
+}
+
+.jp-JupypressEditor-navCenter {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+  flex: 1;
+}
+
+.jp-JupypressEditor-navBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 5px 8px;
+  border: none;
+  background: none;
+  color: var(--jp-ui-font-color1);
+  cursor: pointer;
+  border-radius: var(--jp-border-radius);
+  font-size: var(--jp-ui-font-size1);
+  transition: background 0.15s;
+  white-space: nowrap;
+}
+
+.jp-JupypressEditor-navBtn:hover {
+  background: var(--jp-layout-color3);
+}
+
+.jp-JupypressEditor-navBtn--active {
+  color: var(--jp-brand-color1, #1976d2);
+}
+
+.jp-JupypressEditor-navBtn--active:hover {
+  background: var(--jp-layout-color3);
+}
+
+.jp-JupypressEditor-navBtn svg {
+  width: 16px;
+  height: 16px;
+  flex-shrink: 0;
+}
+
+.jp-JupypressEditor-navRight {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+/* Export split button */
+.jp-JupypressEditor-exportSplit,
+.jp-JupypressEditor-presentSplit {
+  display: flex;
+  align-items: stretch;
+  border: 1px solid var(--jp-border-color1);
+  border-radius: var(--jp-border-radius);
+  overflow: hidden;
+}
+
+.jp-JupypressEditor-exportSplit-main,
+.jp-JupypressEditor-presentSplit-main {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 5px 11px;
+  border: none;
+  border-right: 1px solid var(--jp-border-color1);
+  background: var(--jp-layout-color2);
+  color: var(--jp-ui-font-color1);
+  cursor: pointer;
+  font-size: var(--jp-ui-font-size1);
+  font-weight: 500;
+  transition: background 0.15s;
+}
+
+.jp-JupypressEditor-exportSplit-main svg,
+.jp-JupypressEditor-presentSplit-main svg {
+  width: 15px;
+  height: 15px;
+  flex-shrink: 0;
+}
+
+.jp-JupypressEditor-exportSplit-arrow,
+.jp-JupypressEditor-presentSplit-arrow {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 5px 7px;
+  border: none;
+  background: var(--jp-layout-color2);
+  color: var(--jp-ui-font-color1);
+  cursor: pointer;
+  transition: background 0.15s;
+}
+
+.jp-JupypressEditor-exportSplit-arrow svg,
+.jp-JupypressEditor-presentSplit-arrow svg {
+  width: 13px;
+  height: 13px;
+}
+
+.jp-JupypressEditor-exportSplit-main:hover,
+.jp-JupypressEditor-exportSplit-arrow:hover,
+.jp-JupypressEditor-presentSplit-main:hover,
+.jp-JupypressEditor-presentSplit-arrow:hover {
+  background: var(--jp-layout-color3);
+}
+
+.jp-JupypressEditor-presentSplit {
+  border-color: var(--jp-brand-color1);
+}
+
+.jp-JupypressEditor-presentSplit-main,
+.jp-JupypressEditor-presentSplit-arrow {
+  background: var(--jp-brand-color1);
+  color: #ffffff;
+  font-weight: 600;
+}
+
+.jp-JupypressEditor-presentSplit-main {
+  padding: 6px 13px;
+}
+
+.jp-JupypressEditor-presentSplit-arrow {
+  border-left: 1px solid rgba(255,255,255,0.28);
+}
+
+.jp-JupypressEditor-presentSplit-main:hover,
+.jp-JupypressEditor-presentSplit-arrow:hover {
+  background: var(--jp-brand-color0);
+}
+
+/* Export dropdown */
+.jp-JupypressEditor-exportMenu,
+.jp-JupypressEditor-presentMenu {
+  position: absolute;
+  top: calc(100% + 4px);
+  right: 0;
+  background: var(--jp-layout-color0);
+  border: 1px solid var(--jp-border-color1);
+  border-radius: var(--jp-border-radius);
+  box-shadow: 0 4px 14px rgba(0,0,0,0.14);
+  z-index: 300;
+  min-width: 170px;
+  overflow: hidden;
+}
+
+.jp-JupypressEditor-exportMenu button,
+.jp-JupypressEditor-presentMenu button {
+  display: block;
+  width: 100%;
+  padding: 8px 14px;
+  text-align: left;
+  border: none;
+  background: none;
+  color: var(--jp-ui-font-color1);
+  cursor: pointer;
+  font-size: var(--jp-ui-font-size1);
+  transition: background 0.1s;
+}
+
+.jp-JupypressEditor-exportMenu button:hover,
+.jp-JupypressEditor-presentMenu button:hover {
+  background: var(--jp-layout-color3);
+}
+
+/* Present button */
+.jp-JupypressEditor-presentBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 14px;
+  border: none;
+  border-radius: var(--jp-border-radius);
+  background: var(--jp-brand-color1);
+  color: #ffffff;
+  cursor: pointer;
+  font-size: var(--jp-ui-font-size1);
+  font-weight: 600;
+  transition: opacity 0.15s;
+  letter-spacing: 0.01em;
+}
+
+.jp-JupypressEditor-presentBtn:hover {
+  opacity: 0.88;
+}
+
+.jp-JupypressEditor-presentBtn svg {
+  width: 13px;
+  height: 13px;
+  flex-shrink: 0;
+}
+
+/* Legacy header (kept for backwards compat, no longer used) */
+.jp-JupypressEditor-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px 16px;
+  border-bottom: 1px solid var(--jp-border-color1);
+  background: var(--jp-layout-color1);
+  gap: 8px;
+}
+
+.jp-JupypressEditor-tabs {
+  display: flex;
+  gap: 4px;
+}
+
+.jp-JupypressEditor-actions {
+  display: flex;
+  gap: 4px;
+}
+
+/* Tab buttons — use jp-mod-active for state */
+
+.jp-JupypressEditor-tab {
+  padding: 6px 14px;
+  border: 1px solid var(--jp-border-color1);
+  background: var(--jp-layout-color2);
+  color: var(--jp-ui-font-color1);
+  border-radius: var(--jp-border-radius);
+  cursor: pointer;
+  font-weight: 500;
+  transition: background 0.15s;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: var(--jp-ui-font-size1);
+}
+
+.jp-JupypressEditor-tab:hover {
+  background: var(--jp-layout-color3);
+}
+
+.jp-JupypressEditor-tab.jp-mod-active {
+  background: var(--jp-brand-color1);
+  color: var(--jp-ui-inverse-font-color1);
+  border-color: var(--jp-brand-color1);
+}
+
+/* Export / action buttons */
+
+.jp-JupypressEditor-exportButton {
+  padding: 5px 12px;
+  border: 1px solid var(--jp-border-color1);
+  background: var(--jp-layout-color2);
+  color: var(--jp-ui-font-color1);
+  border-radius: var(--jp-border-radius);
+  cursor: pointer;
+  font-weight: 500;
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  font-size: var(--jp-ui-font-size1);
+  transition: background 0.15s;
+}
+
+.jp-JupypressEditor-exportButton:hover:not(:disabled) {
+  background: var(--jp-layout-color3);
+  border-color: var(--jp-brand-color2);
+}
+
+.jp-JupypressEditor-presentBtn {
+  background: var(--jp-brand-color1);
+  color: var(--jp-ui-inverse-font-color0);
+  border-color: var(--jp-brand-color1);
+}
+
+.jp-JupypressEditor-presentBtn:hover:not(:disabled) {
+  background: var(--jp-brand-color0);
+  border-color: var(--jp-brand-color0);
+  color: var(--jp-ui-inverse-font-color0);
+}
+
+.jp-JupypressEditor-exportButton:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* ── Notebook identity bar ─────────────────────────────────────────────── */
+
+.jp-JupypressEditor-identity {
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+  min-width: 0;
+  flex: 1;
+}
+
+.jp-JupypressEditor-notebookName {
+  font-weight: 700;
+  font-size: var(--jp-ui-font-size1);
+  color: var(--jp-ui-font-color0);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.jp-JupypressEditor-notebookPath {
+  font-size: var(--jp-ui-font-size0);
+  color: var(--jp-ui-font-color2);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  font-family: var(--jp-code-font-family);
+  opacity: 0.8;
+}
+
+/* ── Editor Content area (WYSIWYG 3-column) ─────────────────────────────── */
+
+.jp-JupypressEditor-content {
+  display: flex;
+  flex: 1;
+  min-height: 0;
+  overflow: hidden;
+}
+
+/* ── Sidebar notebook identity ───────────────────────────────────── */
+
+.jp-JupypressEditor-slideList-identity {
+  padding: 12px 12px 8px 12px;
+  border-bottom: 1px solid var(--jp-border-color2);
+  flex-shrink: 0;
+}
+
+.jp-JupypressEditor-notebookName {
+  font-weight: 700;
+  font-size: var(--jp-ui-font-size1);
+  color: var(--jp-ui-font-color0);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.jp-JupypressEditor-notebookPath {
+  font-size: var(--jp-ui-font-size0);
+  color: var(--jp-ui-font-color2);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  margin-top: 1px;
+}
+
+/* ── Slide List (left panel) ───────────────────────────────────────────── */
+
+.jp-JupypressEditor-slideList {
+  flex: 0 0 160px;
+  background: var(--jp-layout-color1);
+  border-right: 1px solid var(--jp-border-color1);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.jp-JupypressEditor-slideList-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px 12px;
+  border-bottom: 1px solid var(--jp-border-color2);
+}
+
+.jp-JupypressEditor-slideList-header h3 {
+  margin: 0;
+  font-size: var(--jp-ui-font-size1);
+  font-weight: 600;
+  color: var(--jp-ui-font-color0);
+}
+
+.jp-JupypressEditor-slideList-addButton {
+  padding: 4px 6px;
+  border: none;
+  background: none;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--jp-brand-color1);
+  transition: color 0.15s;
+}
+
+.jp-JupypressEditor-slideList-addButton:hover {
+  color: var(--jp-brand-color0);
+}
+
+.jp-JupypressEditor-slideList-items {
+  flex: 1;
+  overflow-y: auto;
+  padding: 6px;
+}
+
+.jp-JupypressEditor-slideList-footer {
+  padding: 8px;
+  border-top: 1px solid var(--jp-border-color2);
+}
+
+.jp-JupypressEditor-slideList-addSlideBtn {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  padding: 6px;
+  border: 1px solid var(--jp-brand-color2);
+  border-radius: var(--jp-border-radius);
+  background: none;
+  color: var(--jp-brand-color1);
+  cursor: pointer;
+  font-size: var(--jp-ui-font-size1);
+  font-weight: 600;
+  transition: background 0.15s;
+}
+
+.jp-JupypressEditor-slideList-addSlideBtn:hover {
+  background: var(--jp-brand-color3);
+}
+
+.jp-JupypressEditor-slideList-empty {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 24px 12px;
+  gap: 10px;
+  color: var(--jp-ui-font-color2);
+}
+
+.jp-JupypressEditor-slideList-empty p {
+  margin: 0;
+  font-size: var(--jp-ui-font-size1);
+}
+
+.jp-JupypressEditor-slideList-empty button {
+  padding: 6px 14px;
+  border: 1px solid var(--jp-brand-color1);
+  border-radius: var(--jp-border-radius);
+  background: none;
+  color: var(--jp-brand-color1);
+  cursor: pointer;
+  font-size: var(--jp-ui-font-size1);
+}
+
+.jp-JupypressEditor-slideList-empty button:hover {
+  background: var(--jp-brand-color1);
+  color: white;
+}
+
+/* Slide list item — vertical card with thumbnail */
+
+.jp-JupypressEditor-slideList-item {
+  display: flex;
+  flex-direction: column;
+  padding: 6px;
+  cursor: pointer;
+  border-radius: var(--jp-border-radius);
+  border: 2px solid transparent;
+  transition: border-color 0.15s, background 0.15s;
+  margin-bottom: 4px;
+}
+
+.jp-JupypressEditor-slideList-item:hover {
+  background: var(--jp-layout-color2);
+}
+
+.jp-JupypressEditor-slideList-item.jp-mod-selected {
+  border-color: var(--jp-brand-color1);
+  background: color-mix(in srgb, var(--jp-brand-color1) 18%, var(--jp-layout-color1));
+}
+
+.jp-JupypressEditor-slideList-item.jp-mod-selected .jp-JupypressEditor-slideList-number {
+  color: var(--jp-ui-font-color1);
+}
+
+.jp-JupypressEditor-slideList-item.jp-mod-selected .jp-JupypressEditor-slideList-itemActions button {
+  color: var(--jp-ui-font-color1);
+}
+
+/* Layout thumbnail inside each slide item */
+
+.jp-JupypressSlideList-thumbnail {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+  border-radius: var(--jp-border-radius);
+  border: 1px solid var(--jp-border-color2);
+  background: var(--jp-layout-color0);
+  margin-bottom: 4px;
+  line-height: 0;
+}
+
+.jp-JupypressSlideList-thumbnail svg {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+/* Header row: number + name + unfilled badge */
+
+.jp-JupypressSlideList-itemHeader {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  margin-bottom: 4px;
+}
+
+.jp-JupypressEditor-slideList-name {
+  flex: 1;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-size: var(--jp-ui-font-size1);
+  font-weight: 600;
+  color: var(--jp-ui-font-color0);
+}
+
+.jp-JupypressEditor-slideList-itemActions {
+  display: flex;
+  gap: 1px;
+  justify-content: flex-end;
+  margin-top: 2px;
+}
+
+.jp-JupypressEditor-slideList-itemActions button {
+  padding: 3px;
+  width: 22px;
+  height: 22px;
+  border: none;
+  background: none;
+  cursor: pointer;
+  color: var(--jp-ui-font-color2);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: color 0.15s;
+  border-radius: var(--jp-border-radius);
+  flex-shrink: 0;
+}
+
+.jp-JupypressEditor-slideList-itemActions button svg,
+.jp-JupypressEditor-slideList-itemActions button span > svg {
+  width: 13px;
+  height: 13px;
+  display: block;
+  flex-shrink: 0;
+}
+
+.jp-JupypressEditor-slideList-itemActions button:hover {
+  color: var(--jp-brand-color1);
+  background: var(--jp-layout-color3);
+}
+
+/* ── Slide Editor (right panel) ────────────────────────────────────────── */
+
+.jp-JupypressEditor-slideEditor {
+  flex: 0 0 340px;
+  background: var(--jp-layout-color1);
+  border-left: 1px solid var(--jp-border-color1);
+  border-right: 1px solid var(--jp-border-color1);
+  padding: 16px;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.jp-JupypressEditor-slideEditor--empty {
+  align-items: center;
+  justify-content: center;
+  color: var(--jp-ui-font-color2);
+}
+
+.jp-JupypressEditor-slideEditor--empty p {
+  margin: 0;
+  font-size: var(--jp-ui-font-size1);
+}
+
+/* ── Preview column (right, flex:1) ─────────────────────────────────────── */
+
+.jp-JupypressEditor-previewColumn {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  background: var(--jp-layout-color0);
+  overflow: hidden;
+}
+
+.jp-JupypressEditor-slideEditor-section h4 {
+  margin: 0 0 8px 0;
+  font-size: var(--jp-ui-font-size1);
+  font-weight: 600;
+  color: var(--jp-ui-font-color0);
+}
+
+/* ── Layout Card shape previews (div-based 16:9 wireframes) ───────────── */
+
+.jp-JupypressLayoutCard-frame {
+  aspect-ratio: 16 / 9;
+  background: var(--jp-layout-color0);
+  border: 1px solid var(--jp-border-color2);
+  border-radius: 2px;
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  padding: 5px;
+  overflow: hidden;
+  box-sizing: border-box;
+}
+
+.jp-JupypressLayoutCard-frame--centered {
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+}
+
+.jp-JupypressLayoutCard-headerBar {
+  height: 6px;
+  background: #c8d4f0;
+  border-radius: 1px;
+  flex-shrink: 0;
+  width: 100%;
+}
+
+.jp-JupypressLayoutCard-titleBar {
+  width: 62%;
+  height: 8px;
+  background: #f5c098;
+  border-radius: 1px;
+  flex-shrink: 0;
+}
+
+.jp-JupypressLayoutCard-subtitleBar {
+  width: 42%;
+  height: 4px;
+  background: #d8ccc8;
+  border-radius: 1px;
+  flex-shrink: 0;
+}
+
+.jp-JupypressLayoutCard-contentBlock {
+  flex: 1;
+  background: #e2e2e2;
+  border-radius: 1px;
+  min-height: 0;
+}
+
+.jp-JupypressLayoutCard-columns {
+  flex: 1;
+  display: flex;
+  gap: 3px;
+  min-height: 0;
+}
+
+.jp-JupypressLayoutCard-colBlock {
+  flex: 1;
+  background: #e2e2e2;
+  border-radius: 1px;
+}
+
+.jp-JupypressLayoutCard-rowBlock {
+  flex: 1;
+  background: #e2e2e2;
+  border-radius: 1px;
+  min-height: 0;
+}
+
+/* ── Layout Selector ───────────────────────────────────────────────────── */
+
+.jp-JupypressLayoutSelector-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 6px;
+}
+
+.jp-JupypressLayoutSelector-card {
+  padding: 7px 6px;
+  border: 2px solid var(--jp-border-color1);
+  border-radius: var(--jp-border-radius);
+  cursor: pointer;
+  text-align: center;
+  transition: border-color 0.15s, background 0.15s;
+  background: var(--jp-layout-color2);
+  color: var(--jp-ui-font-color1);
+}
+
+.jp-JupypressLayoutSelector-card:hover {
+  border-color: var(--jp-brand-color2);
+  background: var(--jp-layout-color3);
+}
+
+.jp-JupypressLayoutSelector-card.jp-mod-active {
+  border-color: var(--jp-brand-color1);
+  background: color-mix(in srgb, var(--jp-brand-color1) 18%, var(--jp-layout-color1));
+  color: var(--jp-ui-font-color0);
+}
+
+.jp-JupypressLayoutSelector-card.jp-mod-active .jp-JupypressLayoutSelector-desc {
+  color: var(--jp-ui-font-color1);
+}
+
+.jp-JupypressLayoutSelector-preview {
+  margin-bottom: 6px;
+  line-height: 1;
+}
+
+.jp-JupypressLayoutSelector-preview svg {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.jp-JupypressLayoutSelector-name {
+  font-weight: 600;
+  font-size: var(--jp-ui-font-size0);
+  margin-bottom: 2px;
+}
+
+.jp-JupypressLayoutSelector-desc {
+  font-size: var(--jp-ui-font-size0);
+  color: var(--jp-ui-font-color2);
+}
+
+/* ── Cell Assigner ─────────────────────────────────────────────────────── */
+
+.jp-JupypressCellAssigner-slots {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.jp-JupypressCellAssigner-slot {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding: 8px;
+  background: var(--jp-layout-color2);
+  border-radius: var(--jp-border-radius);
+  border: 1px solid var(--jp-border-color2);
+}
+
+.jp-JupypressCellAssigner-slotHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 4px;
+}
+
+.jp-JupypressCellAssigner-slotLabel {
+  font-size: var(--jp-ui-font-size0);
+  font-weight: 600;
+  color: var(--jp-brand-color1);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.jp-JupypressCellAssigner-addBtn {
+  padding: 2px 8px;
+  border: 1px solid var(--jp-border-color1);
+  border-radius: var(--jp-border-radius);
+  background: var(--jp-layout-color2);
+  color: var(--jp-ui-font-color1);
+  cursor: pointer;
+  font-size: var(--jp-ui-font-size0);
+  white-space: nowrap;
+  transition: background 0.15s, border-color 0.15s;
+}
+
+.jp-JupypressCellAssigner-addBtn:hover {
+  background: var(--jp-brand-color3);
+  border-color: var(--jp-brand-color2);
+  color: var(--jp-brand-color1);
+}
+
+.jp-JupypressCellAssigner-slotEmpty {
+  font-size: var(--jp-ui-font-size0);
+  color: var(--jp-ui-font-color3);
+  padding: 4px 6px;
+  font-style: italic;
+  border: 1px dashed var(--jp-border-color2);
+  border-radius: var(--jp-border-radius);
+  text-align: center;
+}
+
+.jp-JupypressCellAssigner-assigned {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  background: var(--jp-layout-color2);
+  border: 1px solid var(--jp-border-color1);
+  border-radius: var(--jp-border-radius);
+  padding: 3px 6px;
+  flex-wrap: wrap;
+}
+
+.jp-JupypressCellAssigner-cellPreview {
+  flex: 1;
+  font-family: var(--jp-code-font-family);
+  font-size: var(--jp-ui-font-size0);
+  color: var(--jp-ui-font-color1);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  min-width: 0;
+}
+
+/* Include mode segmented toggle (Both/Input/Output) */
+
+.jp-JupypressCellAssigner-includeToggle {
+  display: flex;
+  gap: 1px;
+  background: var(--jp-layout-color3);
+  border: 1px solid var(--jp-border-color1);
+  border-radius: var(--jp-border-radius);
+  padding: 1px;
+  flex-shrink: 0;
+}
+
+.jp-JupypressCellAssigner-includeToggle button {
+  padding: 1px 5px;
+  border: none;
+  background: none;
+  cursor: pointer;
+  font-size: 10px;
+  font-weight: 600;
+  color: var(--jp-ui-font-color2);
+  border-radius: 2px;
+  transition: background 0.1s, color 0.1s;
+}
+
+.jp-JupypressCellAssigner-includeToggle button.jp-mod-active {
+  background: var(--jp-layout-color1);
+  color: var(--jp-brand-color1);
+  box-shadow: 0 1px 2px rgba(0,0,0,0.1);
+}
+
+.jp-JupypressCellAssigner-unassign {
+  padding: 1px 5px;
+  border: none;
+  background: none;
+  cursor: pointer;
+  color: var(--jp-ui-font-color2);
+  font-size: 14px;
+  line-height: 1;
+  flex-shrink: 0;
+  transition: color 0.15s;
+}
+
+.jp-JupypressCellAssigner-unassign:hover {
+  color: var(--jp-error-color1);
+}
+
+/* ── Theme Editor ──────────────────────────────────────────────────────── */
+
+.jp-JupypressThemeEditor {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.jp-JupypressThemeEditor-themeList {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+}
+
+.jp-JupypressThemeEditor-themeBtn {
+  min-height: 24px;
+  padding: 4px 14px;
+  border: 1px solid var(--jp-border-color1);
+  border-radius: 2px;
+  background: var(--jp-layout-color2);
+  color: var(--jp-ui-font-color1);
+  cursor: pointer;
+  font-size: 11px;
+  font-weight: 700;
+  line-height: 1;
+  transition: background 0.15s, border-color 0.15s, color 0.15s;
+}
+
+.jp-JupypressThemeEditor-themeBtn:hover {
+  background: var(--jp-layout-color3);
+  border-color: var(--jp-border-color0);
+}
+
+.jp-JupypressThemeEditor-themeBtn.jp-mod-active {
+  background: var(--jp-brand-color1);
+  color: var(--jp-ui-inverse-font-color1) !important;
+  border-color: var(--jp-brand-color1);
+  font-weight: 600;
+}
+
+.jp-JupypressThemeEditor-addBtn {
+  width: 24px;
+  height: 24px;
+  border: none;
+  background: transparent;
+  color: var(--jp-brand-color1);
+  cursor: pointer;
+  font-size: 18px;
+  line-height: 1;
+}
+
+.jp-JupypressThemeEditor-label,
+.jp-JupypressThemeRef-section {
+  color: var(--jp-ui-font-color1);
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.jp-JupypressThemeEditor-workspace {
+  display: grid;
+  grid-template-columns: minmax(210px, 24%) minmax(0, 1fr);
+  gap: 16px;
+  min-height: 0;
+  height: min(420px, 42vh);
+}
+
+.jp-JupypressThemeRef {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  padding: 0 10px 10px;
+  border: 1px solid var(--jp-border-color1);
+  border-radius: 3px;
+  background: var(--jp-layout-color1);
+  color: var(--jp-ui-font-color1);
+  min-height: 0;
+  overflow: auto;
+}
+
+.jp-JupypressThemeRef-title {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  margin: 0 -10px 8px;
+  padding: 7px 10px;
+  border-bottom: 1px solid var(--jp-border-color1);
+  background: var(--jp-layout-color2);
+  color: var(--jp-ui-font-color1);
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.jp-JupypressThemeRef-dot {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  background: var(--jp-info-color1, var(--jp-brand-color1));
+  color: var(--jp-ui-inverse-font-color1);
+  font-size: 10px;
+  font-weight: 700;
+  font-family: Georgia, serif;
+}
+
+.jp-JupypressThemeRef code {
+  display: block;
+  font-family: var(--jp-code-font-family, monospace);
+  font-size: 12px;
+  line-height: 1.55;
+  color: var(--jp-brand-color1);
+  background: transparent;
+  white-space: nowrap;
+}
+
+.jp-JupypressThemeRef-group {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  min-width: 0;
+}
+
+.jp-JupypressThemeRef-note {
+  margin-top: auto;
+  padding-top: 10px;
+  border-top: 1px solid var(--jp-border-color1);
+  color: var(--jp-ui-font-color2);
+  font-size: 10px;
+  font-style: italic;
+  line-height: 1.35;
+}
+
+.jp-JupypressThemeEditor-codeBox {
+  display: grid;
+  grid-template-columns: 36px minmax(0, 1fr);
+  min-height: 0;
+  min-width: 0;
+  border: 1px solid var(--jp-border-color1);
+  border-radius: 3px;
+  background: var(--jp-layout-color0);
+  box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.12);
+  overflow: auto;
+}
+
+.jp-JupypressThemeEditor-lineNumbers {
+  margin: 0;
+  padding: 11px 8px 11px 0;
+  border-right: 1px solid var(--jp-border-color1);
+  background: var(--jp-layout-color1);
+  color: var(--jp-ui-font-color3);
+  font-family: var(--jp-code-font-family, monospace);
+  font-size: 12px;
+  line-height: 1.55;
+  text-align: right;
+  user-select: none;
+  overflow: hidden;
+}
+
+.jp-JupypressThemeEditor-textarea {
+  width: 100%;
+  height: 100%;
+  min-height: 100%;
+  min-width: 720px;
+  padding: 11px 14px;
+  border: none;
+  border-radius: 0;
+  outline: none;
+  resize: none;
+  background: var(--jp-layout-color0);
+  color: var(--jp-content-font-color1);
+  font-family: var(--jp-code-font-family, monospace);
+  font-size: 12px;
+  line-height: 1.55;
+  tab-size: 2;
+  overflow: auto;
+}
+
+.jp-JupypressThemeRef::-webkit-scrollbar,
+.jp-JupypressThemeEditor-codeBox::-webkit-scrollbar,
+.jp-JupypressThemeEditor-textarea::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+.jp-JupypressThemeRef::-webkit-scrollbar-track,
+.jp-JupypressThemeEditor-codeBox::-webkit-scrollbar-track,
+.jp-JupypressThemeEditor-textarea::-webkit-scrollbar-track {
+  background: var(--jp-layout-color2);
+}
+
+.jp-JupypressThemeRef::-webkit-scrollbar-thumb,
+.jp-JupypressThemeEditor-codeBox::-webkit-scrollbar-thumb,
+.jp-JupypressThemeEditor-textarea::-webkit-scrollbar-thumb {
+  background: var(--jp-border-color1);
+  border-radius: 3px;
+}
+
+.jp-JupypressThemeRef::-webkit-scrollbar-thumb:hover,
+.jp-JupypressThemeEditor-codeBox::-webkit-scrollbar-thumb:hover,
+.jp-JupypressThemeEditor-textarea::-webkit-scrollbar-thumb:hover {
+  background: var(--jp-border-color0);
+}
+
+.jp-JupypressThemeEditor-controls {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 8px;
+  padding-top: 10px;
+  border-top: 1px solid var(--jp-border-color1);
+}
+
+.jp-JupypressThemeEditor-controls input {
+  min-width: 0;
+  /* height: 31px; */
+  padding: 6px 10px;
+  border: 1px solid var(--jp-border-color1);
+  border-radius: 2px;
+  background: var(--jp-input-background);
+  color: var(--jp-ui-font-color1);
+  font-size: 12px;
+}
+
+.jp-JupypressThemeEditor-saveButton {
+  min-height: 31px;
+  min-width: 132px;
+  padding: 6px 16px;
+  border: 1px solid var(--jp-brand-color1);
+  border-radius: 3px;
+  background: var(--jp-brand-color1);
+  color: var(--jp-ui-inverse-font-color1);
+  cursor: pointer;
+  font-weight: 800;
+  white-space: nowrap;
+  overflow: visible;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  font-size: 11px;
+  transition: background 0.15s, border-color 0.15s, opacity 0.15s;
+}
+
+.jp-JupypressThemeEditor-saveButton span:first-child {
+  width: 13px;
+  height: 13px;
+}
+
+.jp-JupypressThemeEditor-saveButton:hover:not(:disabled) {
+  background: var(--jp-brand-color0);
+  border-color: var(--jp-brand-color0);
+}
+
+.jp-JupypressThemeEditor-saveButton:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+
+.jp-JupypressThemeEditor-error {
+  color: var(--jp-error-color1);
+  font-size: 11px;
+}
+
+/* ── Presentation Preview ──────────────────────────────────────────────── */
+
+.jp-JupypressPreview {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  width: 100%;
+  background: var(--jp-layout-color0);
+}
+
+/* Canvas: centres the 16:9 iframe — now fills full height since toolbar is gone */
+
+.jp-JupypressPreview-canvas {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 16px;
+  background: var(--jp-layout-color0);
+  overflow: hidden;
+}
+
+.jp-JupypressPreview-iframe {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  max-height: 100%;
+  border: none;
+  border-radius: 6px;
+  box-shadow: 0 4px 24px rgba(0,0,0,0.22);
+  display: block;
+}
+
+/* ── Error Banner ──────────────────────────────────────────────────────── */
+
+.jp-JupypressEditor-error {
+  padding: 8px 16px;
+  background: var(--jp-error-color3);
+  border-bottom: 1px solid var(--jp-error-color2);
+  color: var(--jp-error-color0);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  font-size: var(--jp-ui-font-size1);
+}
+
+.jp-JupypressEditor-error p {
+  margin: 0;
+}
+
+.jp-JupypressEditor-error button {
+  padding: 2px 10px;
+  border: 1px solid var(--jp-error-color1);
+  background: var(--jp-error-color2);
+  color: var(--jp-error-color0);
+  border-radius: var(--jp-border-radius);
+  cursor: pointer;
+  font-size: var(--jp-ui-font-size0);
+}
+
+/* ── Scrollbar ─────────────────────────────────────────────────────────── */
+
+.jp-JupypressEditor-slideList-items::-webkit-scrollbar,
+.jp-JupypressEditor-slideEditor::-webkit-scrollbar {
+  width: 6px;
+}
+
+.jp-JupypressEditor-slideList-items::-webkit-scrollbar-track,
+.jp-JupypressEditor-slideEditor::-webkit-scrollbar-track {
+  background: var(--jp-layout-color2);
+}
+
+.jp-JupypressEditor-slideList-items::-webkit-scrollbar-thumb,
+.jp-JupypressEditor-slideEditor::-webkit-scrollbar-thumb {
+  background: var(--jp-border-color1);
+  border-radius: 3px;
+}
+
+.jp-JupypressEditor-slideList-items::-webkit-scrollbar-thumb:hover,
+.jp-JupypressEditor-slideEditor::-webkit-scrollbar-thumb:hover {
+  background: var(--jp-border-color0);
+}
+
+/* Error messages */
+
+.editor-error {
+  padding: 12px 16px;
+  background: #ffebee;
+  border-bottom: 1px solid #ffcdd2;
+  color: #c62828;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+}
+
+.editor-error p {
+  margin: 0;
+  font-size: 13px;
+}
+
+.editor-error button {
+  padding: 4px 12px;
+  border: none;
+  background: #c62828;
+  color: white;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 12px;
+  white-space: nowrap;
+}
+
+.editor-error button:hover {
+  background: #b71c1c;
+}
+
+/* Theme selector */
+
+.theme-select {
+  width: 100%;
+  padding: 6px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 12px;
+  margin-bottom: 8px;
+}
+
+/* ── Theme modal overlay ─────────────────────────────────────────────────── */
+
+.jp-JupypressThemeModal {
+  position: fixed;
+  inset: 0;
+  z-index: 10000;
+  background: var(--jp-dialog-background);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.jp-JupypressThemeModal-content {
+  background: var(--jp-layout-color0);
+  border-radius: 4px;
+  border: 1px solid var(--jp-border-color1);
+  padding: 0 0 20px;
+  width: 80vw;
+  min-width: min(760px, 96vw);
+  max-width: calc(100vw - 72px);
+  height: 70vh;
+  max-height: 70vh;
+  overflow: hidden;
+  box-shadow: var(--jp-elevation-z20);
+  color: var(--jp-ui-font-color1);
+  color-scheme: light dark;
+}
+
+.jp-JupypressThemeModal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 18px 22px;
+  border-bottom: 1px solid var(--jp-border-color1);
+}
+
+.jp-JupypressThemeModal-header h3 {
+  margin: 0;
+  font-size: 18px;
+  font-weight: 800;
+  color: var(--jp-ui-font-color1);
+}
+
+.jp-JupypressThemeModal-close {
+  width: 26px;
+  height: 26px;
+  padding: 0;
+  border: none;
+  background: none;
+  cursor: pointer;
+  color: var(--jp-ui-font-color2);
+  font-size: 20px;
+  border-radius: 3px;
+  line-height: 1;
+  transition: background 0.15s, color 0.15s;
+}
+
+.jp-JupypressThemeModal-close:hover {
+  background: var(--jp-layout-color2);
+  color: var(--jp-ui-font-color1);
+}
+
+.jp-JupypressThemeModal-content > .jp-JupypressThemeEditor {
+  height: calc(70vh - 61px);
+  padding: 18px 22px 16px;
+  overflow: hidden;
+  min-height: 0;
+}
+
+@media (max-width: 860px) {
+  .jp-JupypressThemeModal-content {
+    width: calc(100vw - 28px);
+    min-width: 0;
+    max-width: calc(100vw - 28px);
+  }
+
+  .jp-JupypressThemeEditor-workspace {
+    grid-template-columns: 1fr;
+  }
+
+  .jp-JupypressThemeRef,
+  .jp-JupypressThemeEditor-codeBox,
+  .jp-JupypressThemeEditor-textarea {
+    min-height: 180px;
+  }
+
+  .jp-JupypressThemeEditor-controls {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ── SVG layout diagram styles ───────────────────────────────────────────── */
+
+.jp-JupypressLayout-frame {
+  fill: var(--jp-layout-color0);
+  stroke: var(--jp-border-color1);
+  stroke-width: 1;
+}
+
+.jp-JupypressLayout-slotHeading {
+  fill: var(--jp-brand-color2);
+  stroke: var(--jp-brand-color1);
+  stroke-width: 0.5;
+}
+
+.jp-JupypressLayout-slotSubheading {
+  fill: var(--jp-layout-color3);
+  stroke: var(--jp-border-color0);
+  stroke-width: 0.5;
+}
+
+.jp-JupypressLayout-slotPrimary {
+  fill: var(--jp-brand-color3);
+  stroke: var(--jp-brand-color2);
+  stroke-width: 0.5;
+}
+
+.jp-JupypressLayout-slotSecondary {
+  fill: var(--jp-layout-color3);
+  stroke: var(--jp-border-color1);
+  stroke-width: 0.5;
+}
+
+.jp-JupypressLayout-label {
+  fill: var(--jp-ui-font-color1);
+  font-size: 6px;
+  font-family: var(--jp-ui-font-family);
+  dominant-baseline: middle;
+}
+
+.jp-JupypressLayout-labelSm {
+  fill: var(--jp-ui-font-color2);
+  font-size: 5px;
+  font-family: var(--jp-ui-font-family);
+  dominant-baseline: middle;
+}
+
+.jp-JupypressLayout-labelXs {
+  fill: var(--jp-ui-font-color2);
+  font-size: 4px;
+  font-family: var(--jp-ui-font-family);
+  dominant-baseline: middle;
+}
+
+/* Active card: invert SVG slot colors for better contrast */
+.jp-JupypressLayoutSelector-card.jp-mod-active .jp-JupypressLayout-frame {
+  fill: var(--jp-brand-color3);
+  stroke: var(--jp-brand-color1);
+}
+
+.jp-JupypressLayoutSelector-card.jp-mod-active .jp-JupypressLayout-slotHeading {
+  fill: var(--jp-brand-color1);
+  stroke: var(--jp-brand-color0);
+}
+
+.jp-JupypressLayoutSelector-card.jp-mod-active .jp-JupypressLayout-slotPrimary {
+  fill: var(--jp-brand-color2);
+  stroke: var(--jp-brand-color1);
+}
+
+.jp-JupypressLayoutSelector-card.jp-mod-active .jp-JupypressLayout-label,
+.jp-JupypressLayoutSelector-card.jp-mod-active .jp-JupypressLayout-labelSm,
+.jp-JupypressLayoutSelector-card.jp-mod-active .jp-JupypressLayout-labelXs {
+  fill: var(--jp-ui-inverse-font-color1);
+}
+
+
+/* ── Cell Picker Modal ─────────────────────────────────────────────── */
+
+.jp-JupypressCellPicker-overlay {
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  z-index: 1000;
+  background: rgba(0, 0, 0, 0.4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.jp-JupypressCellPicker {
+  background: var(--jp-layout-color1);
+  border: 1px solid var(--jp-border-color0);
+  border-radius: var(--jp-border-radius);
+  width: 580px;
+  max-width: 92%;
+  max-height: 78vh;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.28);
+  overflow: hidden;
+}
+
+/* Header */
+
+.jp-JupypressCellPicker-header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 14px;
+  border-bottom: 1px solid var(--jp-border-color1);
+  background: var(--jp-layout-color2);
+  flex-shrink: 0;
+}
+
+.jp-JupypressCellPicker-title {
+  margin: 0;
+  flex: 1;
+  font-size: var(--jp-ui-font-size1);
+  font-weight: 600;
+  color: var(--jp-ui-font-color0);
+  white-space: nowrap;
+}
+
+.jp-JupypressCellPicker-title em {
+  font-style: normal;
+  color: var(--jp-brand-color1);
+}
+
+.jp-JupypressCellPicker-search {
+  flex: 0 0 180px;
+  padding: 4px 8px;
+  border: 1px solid var(--jp-border-color1);
+  border-radius: var(--jp-border-radius);
+  background: var(--jp-layout-color1);
+  color: var(--jp-ui-font-color1);
+  font-size: var(--jp-ui-font-size0);
+}
+
+.jp-JupypressCellPicker-search:focus {
+  outline: none;
+  border-color: var(--jp-brand-color1);
+}
+
+.jp-JupypressCellPicker-close {
+  padding: 4px 7px;
+  border: none;
+  background: none;
+  cursor: pointer;
+  color: var(--jp-ui-font-color2);
+  font-size: 16px;
+  line-height: 1;
+  transition: color 0.15s;
+}
+
+.jp-JupypressCellPicker-close:hover {
+  color: var(--jp-error-color1);
+}
+
+/* Filter bar */
+
+.jp-JupypressCellPicker-filterBar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  padding: 7px 14px;
+  border-bottom: 1px solid var(--jp-border-color2);
+  background: var(--jp-layout-color1);
+  flex-shrink: 0;
+}
+
+.jp-JupypressCellPicker-bulk {
+  display: flex;
+  gap: 6px;
+}
+
+.jp-JupypressCellPicker-bulk button {
+  padding: 3px 8px;
+  border: 1px solid var(--jp-border-color1);
+  border-radius: var(--jp-border-radius);
+  background: var(--jp-layout-color2);
+  color: var(--jp-ui-font-color1);
+  cursor: pointer;
+  font-size: var(--jp-ui-font-size0);
+  transition: background 0.15s;
+}
+
+.jp-JupypressCellPicker-bulk button:hover {
+  background: var(--jp-layout-color3);
+}
+
+.jp-JupypressCellPicker-typeFilter {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.jp-JupypressCellPicker-typeFilter span {
+  font-size: var(--jp-ui-font-size0);
+  color: var(--jp-ui-font-color2);
+  font-weight: 500;
+  margin-right: 2px;
+}
+
+.jp-JupypressCellPicker-typeFilter button {
+  padding: 2px 9px;
+  border: 1px solid var(--jp-border-color1);
+  border-radius: 12px;
+  background: var(--jp-layout-color2);
+  color: var(--jp-ui-font-color2);
+  cursor: pointer;
+  font-size: var(--jp-ui-font-size0);
+  font-weight: 500;
+  transition: background 0.15s, color 0.15s, border-color 0.15s;
+}
+
+.jp-JupypressCellPicker-typeFilter button.jp-mod-active {
+  background: var(--jp-brand-color1);
+  border-color: var(--jp-brand-color1);
+  color: var(--jp-ui-inverse-font-color0);
+}
+
+.jp-JupypressCellPicker-typeFilter button:not(.jp-mod-active):hover {
+  background: var(--jp-layout-color3);
+  border-color: var(--jp-brand-color2);
+}
+
+/* Cell list */
+
+.jp-JupypressCellPicker-list {
+  flex: 1;
+  overflow-y: auto;
+  padding: 6px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.jp-JupypressCellPicker-empty {
+  padding: 24px;
+  text-align: center;
+  color: var(--jp-ui-font-color2);
+  font-style: italic;
+  font-size: var(--jp-ui-font-size1);
+}
+
+.jp-JupypressCellPicker-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  padding: 7px 10px;
+  border: 1px solid var(--jp-border-color1);
+  border-radius: var(--jp-border-radius);
+  cursor: pointer;
+  transition: background 0.15s, border-color 0.15s;
+  background: var(--jp-layout-color1);
+}
+
+.jp-JupypressCellPicker-item:hover {
+  background: var(--jp-layout-color2);
+  border-color: var(--jp-border-color0);
+}
+
+.jp-JupypressCellPicker-item.jp-mod-selected {
+  background: color-mix(in srgb, var(--jp-brand-color1) 18%, var(--jp-layout-color1));
+  border-color: var(--jp-brand-color1);
+  color: var(--jp-ui-font-color0);
+}
+
+.jp-JupypressCellPicker-item input[type="checkbox"] {
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.jp-JupypressCellPicker-itemBody {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.jp-JupypressCellPicker-itemMeta {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  flex-wrap: wrap;
+}
+
+.jp-JupypressCellPicker-typeBadge {
+  padding: 0 6px;
+  border-radius: 10px;
+  font-size: 10px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.jp-JupypressCellPicker-typeBadge--code {
+  background: #dbeafe;
+  color: #1d4ed8;
+}
+
+.jp-JupypressCellPicker-typeBadge--markdown {
+  background: #d1fae5;
+  color: #065f46;
+}
+
+/* Dark mode badge colors */
+[data-jp-theme-light="false"] .jp-JupypressCellPicker-typeBadge--code {
+  background: #1e3a5f;
+  color: #93c5fd;
+}
+
+[data-jp-theme-light="false"] .jp-JupypressCellPicker-typeBadge--markdown {
+  background: #064e3b;
+  color: #6ee7b7;
+}
+
+.jp-JupypressCellPicker-cellIndex {
+  font-size: var(--jp-ui-font-size0);
+  color: var(--jp-ui-font-color3);
+  font-family: var(--jp-code-font-family);
+}
+
+.jp-JupypressCellPicker-preview {
+  font-family: var(--jp-code-font-family);
+  font-size: var(--jp-ui-font-size0);
+  color: var(--jp-ui-font-color1);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* Include toggle: Both / Input / Output */
+
+.jp-JupypressCellPicker-includeToggle {
+  display: flex;
+  gap: 1px;
+  background: var(--jp-layout-color3);
+  border: 1px solid var(--jp-border-color1);
+  border-radius: var(--jp-border-radius);
+  padding: 1px;
+  flex-shrink: 0;
+}
+
+.jp-JupypressCellPicker-includeToggle button {
+  padding: 1px 6px;
+  border: none;
+  background: none;
+  cursor: pointer;
+  font-size: 10px;
+  font-weight: 600;
+  color: var(--jp-ui-font-color2);
+  border-radius: 2px;
+  transition: background 0.1s, color 0.1s;
+}
+
+.jp-JupypressCellPicker-includeToggle button.jp-mod-active {
+  background: var(--jp-layout-color1);
+  color: var(--jp-brand-color1);
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+/* Footer */
+
+.jp-JupypressCellPicker-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  padding: 10px 14px;
+  border-top: 1px solid var(--jp-border-color1);
+  background: var(--jp-layout-color2);
+  flex-shrink: 0;
+}
+
+.jp-JupypressCellPicker-selectionCount {
+  font-size: var(--jp-ui-font-size0);
+  color: var(--jp-ui-font-color2);
+  font-weight: 500;
+}
+
+.jp-JupypressCellPicker-footerActions {
+  display: flex;
+  gap: 8px;
+}
+
+.jp-JupypressCellPicker-cancelBtn {
+  padding: 5px 14px;
+  border: 1px solid var(--jp-border-color1);
+  border-radius: var(--jp-border-radius);
+  background: var(--jp-layout-color2);
+  color: var(--jp-ui-font-color1);
+  cursor: pointer;
+  font-size: var(--jp-ui-font-size1);
+  transition: background 0.15s;
+}
+
+.jp-JupypressCellPicker-cancelBtn:hover {
+  background: var(--jp-layout-color3);
+}
+
+.jp-JupypressCellPicker-assignBtn {
+  padding: 5px 16px;
+  border: 1px solid var(--jp-brand-color1);
+  border-radius: var(--jp-border-radius);
+  background: var(--jp-brand-color1);
+  color: var(--jp-ui-inverse-font-color0);
+  cursor: pointer;
+  font-size: var(--jp-ui-font-size1);
+  font-weight: 600;
+  transition: background 0.15s, border-color 0.15s;
+}
+
+.jp-JupypressCellPicker-assignBtn:hover:not(:disabled) {
+  background: var(--jp-brand-color0);
+  border-color: var(--jp-brand-color0);
+}
+
+.jp-JupypressCellPicker-assignBtn:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+
+/* ── Slide name editable cue ────────────────────────────────────────── */
+
+.jp-JupypressSlideItem-name--editable {
+  cursor: text;
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 2px 6px;
+  border-radius: var(--jp-border-radius);
+  border: 1px dashed transparent;
+  transition: border-color 0.15s, background 0.15s;
+  font-weight: 600;
+  font-size: var(--jp-ui-font-size2);
+  color: var(--jp-ui-font-color0);
+}
+
+.jp-JupypressSlideItem-name--editable:hover {
+  border-color: var(--jp-border-color0);
+  background: var(--jp-layout-color2);
+}
+
+.jp-JupypressSlideItem-editIcon {
+  width: 11px;
+  height: 11px;
+  opacity: 0;
+  flex-shrink: 0;
+  transition: opacity 0.15s;
+  color: var(--jp-ui-font-color2);
+}
+
+.jp-JupypressSlideItem-name--editable:hover .jp-JupypressSlideItem-editIcon {
+  opacity: 1;
+}
+
+/* ── Slide list thumbnail filled/empty slot indicators ───────────────── */
+
+.jp-JupypressSlideThumb-filled {
+  flex: 1;
+  min-height: 0;
+  background: var(--jp-brand-color3);
+  border: 1px solid var(--jp-brand-color2);
+  border-radius: 1px;
+}
+
+.jp-JupypressSlideThumb-empty {
+  flex: 1;
+  min-height: 0;
+  background: transparent;
+  border: 1px dashed var(--jp-border-color1);
+  border-radius: 1px;
+}
+
+.jp-JupypressSlideList-unfilledBadge {
+  flex-shrink: 0;
+  font-size: 10px;
+  font-weight: 700;
+  color: var(--jp-warn-color1, #e67e22);
+  line-height: 1;
+  margin-right: 2px;
+}
+
+/* ── Docs modal ──────────────────────────────────────────────────────── */
+
+.jp-JupypressDocsModal {
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  z-index: 1000;
+  background: rgba(0, 0, 0, 0.4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.jp-JupypressDocsModal-content {
+  background: var(--jp-layout-color1);
+  border: 1px solid var(--jp-border-color0);
+  border-radius: var(--jp-border-radius);
+  width: 560px;
+  max-width: 92%;
+  max-height: 82vh;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.28);
+  overflow: hidden;
+}
+
+.jp-JupypressDocsModal-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px 18px 12px;
+  border-bottom: 1px solid var(--jp-border-color1);
+  flex-shrink: 0;
+}
+
+.jp-JupypressDocsModal-header h3 {
+  margin: 0;
+  font-size: var(--jp-ui-font-size2);
+  font-weight: 700;
+  color: var(--jp-ui-font-color0);
+}
+
+.jp-JupypressDocsModal-close {
+  padding: 4px 8px;
+  border: none;
+  background: none;
+  cursor: pointer;
+  color: var(--jp-ui-font-color2);
+  font-size: 16px;
+  border-radius: var(--jp-border-radius);
+  line-height: 1;
+  transition: background 0.15s, color 0.15s;
+}
+
+.jp-JupypressDocsModal-close:hover {
+  background: var(--jp-layout-color3);
+  color: var(--jp-ui-font-color0);
+}
+
+.jp-JupypressDocsModal-body {
+  overflow-y: auto;
+  padding: 16px 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.jp-JupypressDocsModal-section h4 {
+  margin: 0 0 6px 0;
+  font-size: var(--jp-ui-font-size1);
+  font-weight: 700;
+  color: var(--jp-brand-color1);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.jp-JupypressDocsModal-section p,
+.jp-JupypressDocsModal-section li {
+  font-size: var(--jp-ui-font-size1);
+  color: var(--jp-ui-font-color1);
+  line-height: 1.55;
+  margin: 0 0 4px 0;
+}
+
+.jp-JupypressDocsModal-section ol,
+.jp-JupypressDocsModal-section ul {
+  margin: 0;
+  padding-left: 20px;
+}
+
+.jp-JupypressDocsModal-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: var(--jp-ui-font-size0);
+}
+
+.jp-JupypressDocsModal-table th,
+.jp-JupypressDocsModal-table td {
+  padding: 5px 10px;
+  text-align: left;
+  border: 1px solid var(--jp-border-color2);
+  color: var(--jp-ui-font-color1);
+}
+
+.jp-JupypressDocsModal-table th {
+  background: var(--jp-layout-color2);
+  font-weight: 600;
+}
+
+.jp-JupypressDocsModal-note {
+  font-size: var(--jp-ui-font-size0) !important;
+  color: var(--jp-ui-font-color2) !important;
+  margin-top: 4px !important;
+}
+
+/* ── Shared modal overlay (layout confirm, delete confirm) ──────────── */
+
+.jp-JupypressModal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.55);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+}
+
+.jp-JupypressModal-dialog {
+  background: var(--jp-layout-color1);
+  border: 1px solid var(--jp-border-color1);
+  border-radius: var(--jp-border-radius);
+  padding: 20px 24px;
+  max-width: 380px;
+  width: 90%;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+}
+
+/* ── Confirmation dialog shared styles ──────────────────────────────── */
+
+.jp-JupypressConfirm {
+  /* kept for backward compat — dialog now rendered in jp-JupypressModal-dialog */
+}
+
+.jp-JupypressConfirm-msg {
+  margin: 0 0 8px 0;
+  font-size: var(--jp-ui-font-size1);
+  color: var(--jp-ui-font-color0);
+  line-height: 1.45;
+}
+
+.jp-JupypressConfirm-actions {
+  display: flex;
+  gap: 8px;
+  justify-content: flex-end;
+}
+
+.jp-JupypressConfirm-cancel,
+.jp-JupypressConfirm-ok {
+  padding: 4px 14px;
+  border-radius: var(--jp-border-radius);
+  font-size: var(--jp-ui-font-size1);
+  cursor: pointer;
+  font-weight: 500;
+  transition: background 0.15s, border-color 0.15s;
+}
+
+.jp-JupypressConfirm-cancel {
+  border: 1px solid var(--jp-border-color1);
+  background: var(--jp-layout-color2);
+  color: var(--jp-ui-font-color1);
+}
+
+.jp-JupypressConfirm-cancel:hover {
+  background: var(--jp-layout-color3);
+}
+
+.jp-JupypressConfirm-ok {
+  border: 1px solid var(--jp-error-color1, #dc3545);
+  background: var(--jp-error-color1, #dc3545);
+  color: #fff;
+}
+
+.jp-JupypressConfirm-ok:hover {
+  background: var(--jp-error-color0, #c82333);
+  border-color: var(--jp-error-color0, #c82333);
+}

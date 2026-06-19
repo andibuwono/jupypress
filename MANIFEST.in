@@ -1,0 +1,10 @@
+recursive-include jupypress/templates *
+recursive-include jupypress/labextension *
+recursive-include jupypress *.py
+global-exclude node_modules
+global-exclude .yarn
+global-exclude .git
+global-exclude __pycache__
+global-exclude *.pyc
+global-exclude .pytest_cache
+global-exclude .ruff_cache

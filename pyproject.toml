@@ -1,0 +1,141 @@
+[build-system]
+requires = ["hatchling", "jupyterlab>=4.0.0,<5", "hatch-jupyter-builder>=0.5"]
+build-backend = "hatchling.build"
+
+[project]
+name = "jupypress"
+version = "0.1.0"
+description = "A JupyterLab extension for converting notebooks into HTML slide presentations"
+readme = "README.md"
+requires-python = ">=3.10"
+license = {file = "LICENSE"}
+authors = [
+    {name = "JupyPress Contributors"}
+]
+keywords = ["jupyter", "jupyterlab", "presentation", "slides", "html"]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Framework :: Jupyter",
+    "Framework :: Jupyter :: JupyterLab",
+    "Framework :: Jupyter :: JupyterLab :: 4",
+    "Intended Audience :: Developers",
+    "Intended Audience :: Science/Research",
+    "License :: OSI Approved :: BSD License",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+    "Topic :: Scientific/Engineering :: Visualization",
+]
+
+dependencies = [
+    "jupyter-core>=5.0.0",
+    "jupyter-server>=2.0.0,<3",
+    "nbformat>=5.9.0",
+    "nbconvert>=7.8.0",
+    "jinja2>=3.1.0",
+    "markdown-it-py>=3.0.0",
+    "pygments>=2.16.0",
+]
+
+[project.optional-dependencies]
+dev = [
+    "hatch",
+    "ruff>=0.1.0",
+    "pre-commit",
+    "build",
+    "twine",
+]
+test = [
+    "pytest>=7.0",
+    "pytest-asyncio",
+    "jupyter-server[test]>=2.0.0",
+]
+
+[project.entry-points."jupyter_server.extension"]
+jupypress = "jupypress:_jupyter_server_extension_points"
+
+[project.urls]
+Homepage = "https://github.com/andibuwono/jupypress"
+Repository = "https://github.com/andibuwono/jupypress"
+Issues = "https://github.com/andibuwono/jupypress/issues"
+Documentation = "https://github.com/andibuwono/jupypress#readme"
+Changelog = "https://github.com/andibuwono/jupypress/blob/main/CHANGELOG.md"
+
+[tool.hatch.build.hooks.jupyter-builder]
+dependencies = ["hatch-jupyter-builder>=0.5"]
+build-function = "hatch_jupyter_builder.npm_builder"
+ensured-targets = [
+    "jupypress/labextension/package.json",
+    "jupypress/labextension/static/style.js",
+]
+skip-if-exists = ["jupypress/labextension/static/style.js"]
+
+[tool.hatch.build.hooks.jupyter-builder.build-kwargs]
+build_cmd = "build:labextension"
+npm = ["jlpm"]
+
+[tool.hatch.build.targets.wheel]
+packages = ["jupypress"]
+
+[tool.hatch.build.targets.wheel.shared-data]
+"jupypress/labextension" = "share/jupyter/labextensions/jupypress"
+"install.json" = "share/jupyter/labextensions/jupypress/install.json"
+"jupyter-config/jupyter_server_config.d/jupypress.json" = "etc/jupyter/jupyter_server_config.d/jupypress.json"
+
+[tool.hatch.build.targets.sdist]
+exclude = [
+  "node_modules",
+  ".yarn",
+  ".git",
+  "dist",
+  "build",
+  "*.egg-info",
+  ".pytest_cache",
+  ".ruff_cache",
+  "coverage",
+  "lib",
+  ".github",
+]
+
+[tool.hatch.envs.default]
+dependencies = [
+    "pytest>=7.0",
+    "pytest-asyncio",
+    "jupyter-server[test]>=2.0.0",
+    "ruff>=0.1.0",
+]
+
+[tool.hatch.envs.default.scripts]
+test = "pytest tests/python"
+lint = "ruff check . --exclude reference"
+format = "ruff format . --exclude reference"
+
+[tool.ruff]
+line-length = 100
+target-version = "py310"
+exclude = [
+    ".git",
+    ".hatch",
+    "node_modules",
+    "reference",
+    "__pycache__",
+    "*.egg-info",
+]
+
+[tool.ruff.lint]
+select = [
+    "E",   # pycodestyle errors
+    "W",   # pycodestyle warnings
+    "F",   # pyflakes
+    "I",   # isort
+]
+ignore = [
+    "E501",  # line too long (handled by formatter)
+]
+
+[tool.pytest.ini_options]
+testpaths = ["tests/python"]
+asyncio_mode = "auto"
+addopts = "-v --tb=short"
